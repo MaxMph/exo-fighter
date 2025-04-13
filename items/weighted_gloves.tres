@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="item" load_steps=2 format=3 uid="uid://do0vjj8ncs3ry"]
+
+[ext_resource type="Script" uid="uid://biqson43hsj6j" path="res://items/item_res.gd" id="1_s2220"]
+
+[resource]
+script = ExtResource("1_s2220")
+description = "These are gloves with metal inserts. Closest thing to brass knuckles that is allowed in the ring. (+2 damage)"
+price = 80
+agility = 0
+attack_speed = 0
+damage = 1
+metadata/_custom_type_script = "uid://biqson43hsj6j"

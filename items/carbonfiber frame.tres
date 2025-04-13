@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="item" load_steps=2 format=3 uid="uid://ckip8dh0581xc"]
+
+[ext_resource type="Script" uid="uid://biqson43hsj6j" path="res://items/item_res.gd" id="1_rlecf"]
+
+[resource]
+script = ExtResource("1_rlecf")
+description = "lightens your frame making you quicker on your feet at the cost of reduced force behind attacks (+1 agility) (-1 damage) (+1 attack speed)"
+price = 480
+agility = 2
+attack_speed = 0
+damage = -1
+metadata/_custom_type_script = "uid://biqson43hsj6j"

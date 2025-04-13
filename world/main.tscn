@@ -1,0 +1,238 @@
+[gd_scene load_steps=19 format=3 uid="uid://lhtkxambi3yb"]
+
+[ext_resource type="Texture2D" uid="uid://bhie37l8gvbus" path="res://world/try 2.png" id="1_lquwl"]
+[ext_resource type="Script" uid="uid://ccbjv32ai8cvc" path="res://world/interactable.gd" id="2_7mycd"]
+[ext_resource type="PackedScene" uid="uid://b53dnic2tmc5g" path="res://people stuff/player/player.tscn" id="3_272bh"]
+[ext_resource type="Script" uid="uid://daiec56jcful1" path="res://world/shop.gd" id="4_5vw27"]
+[ext_resource type="Theme" uid="uid://cpp3b44wsdkb5" path="res://world/theme.tres" id="5_kek77"]
+[ext_resource type="Shortcut" uid="uid://chemkknwdpufs" path="res://world/shortcut.tres" id="6_i1eo7"]
+[ext_resource type="Script" uid="uid://nbaqlncerqwk" path="res://world/store_item.gd" id="7_gu74f"]
+[ext_resource type="Resource" uid="uid://do0vjj8ncs3ry" path="res://items/weighted_gloves.tres" id="8_vid1e"]
+[ext_resource type="Resource" uid="uid://7oklmtu5h3wf" path="res://items/heavy weighted gloves.tres" id="9_tp5tb"]
+[ext_resource type="Resource" uid="uid://ckip8dh0581xc" path="res://items/carbonfiber frame.tres" id="10_8q2wj"]
+[ext_resource type="Resource" uid="uid://cix6fxgw0awht" path="res://items/muscle sensors.tres" id="11_60vd7"]
+[ext_resource type="Resource" uid="uid://bmqbqpgnchvbj" path="res://items/quality_arm_extender.tres" id="12_e63cu"]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_0e48y"]
+polygon = PackedVector2Array(-80, -10, -80, 42, -52, 42, -52, 20, -46, 20, -46, 27, -29, 27, -29, 24, -30, 24, -30, 20, -29, 20, -29, 14, -31, 14, -31, 15, -34, 15, -34, 16, -35, 16, -35, 15, -38, 15, -38, 16, -40, 16, -40, 14, -51, 14, -51, 4, -52, 4, -52, 0, -42, 0, -42, 3, -34, 3, -34, 6, -31, 6, -31, 7, -29, 7, -29, -2, -21, -2, -21, 27, -15, 27, -15, 17, -14, 17, -14, 15, -15, 15, -15, -2, 14, -2, 14, 9, -5, 9, -5, 15, -7, 15, -7, 17, -5, 17, -5, 27, 29, 27, 29, 32, -7, 32, -7, 34, -5, 34, -5, 41, -2, 41, -2, 42, -11, 42, -11, 46, -14, 46, -14, 34, -12, 34, -12, 32, -46, 32, -46, 48, -80, 48, -80, 60, 2, 60, 2, 53, 4, 53, 4, 51, 57, 51, 57, -10)
+
+[sub_resource type="Gradient" id="Gradient_0e48y"]
+offsets = PackedFloat32Array(0, 0.733766)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_epypp"]
+gradient = SubResource("Gradient_0e48y")
+width = 32
+height = 16
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_0e48y"]
+gradient = SubResource("Gradient_0e48y")
+width = 32
+height = 16
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_0hol4"]
+gradient = SubResource("Gradient_0e48y")
+width = 12
+height = 12
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0hol4"]
+size = Vector2(5, 9)
+
+[node name="main" type="Node"]
+
+[node name="Try2" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(10, -40)
+texture = ExtResource("1_lquwl")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Try2"]
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Try2/StaticBody2D"]
+visible = false
+polygon = PackedVector2Array(-80, -10, -80, 42, -52, 42, -52, 20, -46, 20, -46, 27, -29, 27, -29, 24, -30, 24, -30, 20, -29, 20, -29, 14, -31, 14, -31, 15, -34, 15, -34, 16, -35, 16, -35, 15, -38, 15, -38, 16, -40, 16, -40, 14, -51, 14, -51, 4, -52, 4, -52, 0, -42, 0, -42, 3, -34, 3, -34, 6, -31, 6, -31, 7, -29, 7, -29, -2, -21, -2, -21, 27, -15, 27, -15, 17, -14, 17, -14, 15, -15, 15, -15, -2, 14, -2, 14, 9, -5, 9, -5, 15, -7, 15, -7, 17, -5, 17, -5, 27, 29, 27, 29, 32, -7, 32, -7, 34, -5, 34, -5, 41, -2, 41, -2, 42, -11, 42, -11, 46, -14, 46, -14, 34, -12, 34, -12, 32, -46, 32, -46, 48, -80, 48, -80, 60, 2, 60, 2, 53, 4, 53, 4, 51, 57, 51, 57, -10)
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Try2"]
+visible = false
+occluder = SubResource("OccluderPolygon2D_0e48y")
+
+[node name="PointLight2D" type="PointLight2D" parent="Try2/LightOccluder2D"]
+visible = false
+position = Vector2(-10, 22)
+texture = SubResource("GradientTexture2D_epypp")
+
+[node name="PointLight2D3" type="PointLight2D" parent="Try2/LightOccluder2D"]
+visible = false
+position = Vector2(-40, 10)
+texture = SubResource("GradientTexture2D_epypp")
+
+[node name="PointLight2D2" type="PointLight2D" parent="Try2"]
+position = Vector2(-44, 9)
+energy = 0.8
+texture = SubResource("GradientTexture2D_epypp")
+
+[node name="PointLight2D4" type="PointLight2D" parent="Try2"]
+position = Vector2(-1, 8)
+energy = 0.6
+texture = SubResource("GradientTexture2D_0e48y")
+
+[node name="PointLight2D5" type="PointLight2D" parent="Try2"]
+position = Vector2(-8, 40)
+texture = SubResource("GradientTexture2D_0hol4")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="Try2"]
+position = Vector2(-10, 40)
+color = Color(0.552956, 0.552956, 0.552956, 1)
+
+[node name="shop" type="Area2D" parent="Try2"]
+position = Vector2(-10, 40)
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("2_7mycd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Try2/shop"]
+position = Vector2(-40.5, -30.5)
+shape = SubResource("RectangleShape2D_0hol4")
+
+[node name="player" parent="." instance=ExtResource("3_272bh")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="shop" type="Control" parent="CanvasLayer"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("4_5vw27")
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/shop"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -256.0
+offset_right = 300.0
+offset_bottom = 144.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("5_kek77")
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="CanvasLayer/shop/PanelContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/shop/PanelContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="weighted gloves" type="Button" parent="CanvasLayer/shop/PanelContainer/VBoxContainer" node_paths=PackedStringArray("shortcut_context")]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+shortcut_context = NodePath(".")
+theme = ExtResource("5_kek77")
+shortcut = ExtResource("6_i1eo7")
+text = "Weighted Gloves"
+script = ExtResource("7_gu74f")
+item_res = ExtResource("8_vid1e")
+
+[node name="heavy weighted gloves" type="Button" parent="CanvasLayer/shop/PanelContainer/VBoxContainer" node_paths=PackedStringArray("shortcut_context")]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+shortcut_context = NodePath(".")
+theme = ExtResource("5_kek77")
+shortcut = ExtResource("6_i1eo7")
+text = "Heavy Weighted Gloves"
+script = ExtResource("7_gu74f")
+item_res = ExtResource("9_tp5tb")
+
+[node name="carbon fiber frame" type="Button" parent="CanvasLayer/shop/PanelContainer/VBoxContainer" node_paths=PackedStringArray("shortcut_context")]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+focus_neighbor_bottom = NodePath("../muscle sensors")
+shortcut_context = NodePath(".")
+theme = ExtResource("5_kek77")
+shortcut = ExtResource("6_i1eo7")
+text = "Carbon Fiber Frame"
+script = ExtResource("7_gu74f")
+item_res = ExtResource("10_8q2wj")
+
+[node name="muscle sensors" type="Button" parent="CanvasLayer/shop/PanelContainer/VBoxContainer" node_paths=PackedStringArray("shortcut_context")]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+focus_neighbor_bottom = NodePath("../arm extender")
+shortcut_context = NodePath(".")
+theme = ExtResource("5_kek77")
+shortcut = ExtResource("6_i1eo7")
+text = "Quality Muscle Sensors"
+script = ExtResource("7_gu74f")
+item_res = ExtResource("11_60vd7")
+
+[node name="arm extender" type="Button" parent="CanvasLayer/shop/PanelContainer/VBoxContainer" node_paths=PackedStringArray("shortcut_context")]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+shortcut_context = NodePath(".")
+theme = ExtResource("5_kek77")
+shortcut = ExtResource("6_i1eo7")
+text = "Enhanced Arm Extender"
+script = ExtResource("7_gu74f")
+item_res = ExtResource("12_e63cu")
+
+[node name="PanelContainer2" type="PanelContainer" parent="CanvasLayer/shop"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -132.0
+offset_top = -76.0
+offset_right = 133.0
+offset_bottom = -18.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("5_kek77")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/shop/PanelContainer2"]
+custom_minimum_size = Vector2(400, 140)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/shop/PanelContainer2/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 12
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/shop/PanelContainer2/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 12
+
+[node name="Label" type="Label" parent="CanvasLayer/shop/PanelContainer2/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("5_kek77")
+text = "$240"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="CanvasLayer/shop/PanelContainer2/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("5_kek77")
+text = "Buy (F)"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/shop/PanelContainer2/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
+theme = ExtResource("5_kek77")
+text = "asdfgrtdhsdtgstssdgs dg sdfgsr sdgsrdg sdgsregsrg sdrg sdrgs sdfgseg sdfg sdfgs"
+vertical_alignment = 1

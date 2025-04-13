@@ -1,0 +1,65 @@
+[gd_scene load_steps=5 format=3 uid="uid://b53dnic2tmc5g"]
+
+[ext_resource type="Texture2D" uid="uid://csymo2sskvk28" path="res://people stuff/player/player.png" id="1_4flbx"]
+[ext_resource type="Script" uid="uid://q277uxkir8c5" path="res://people stuff/player/player.gd" id="1_onrkg"]
+[ext_resource type="Script" uid="uid://gtxj2bywly4w" path="res://people stuff/player/canvas_layer.gd" id="3_s5v4m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i3pqv"]
+size = Vector2(2, 2)
+
+[node name="player" type="CharacterBody2D" groups=["player"]]
+script = ExtResource("1_onrkg")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_i3pqv")
+
+[node name="Player" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_4flbx")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(20, 20)
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_i3pqv")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+script = ExtResource("3_s5v4m")
+
+[node name="interaction_indicator" type="Label" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = 33.0
+offset_right = 20.0
+offset_bottom = 56.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "F"
+horizontal_alignment = 1
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="money" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 14.0
+offset_right = 78.0
+offset_bottom = 37.0
+text = "$money"
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]

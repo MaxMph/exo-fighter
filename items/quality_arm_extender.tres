@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="item" load_steps=2 format=3 uid="uid://bmqbqpgnchvbj"]
+
+[ext_resource type="Script" uid="uid://biqson43hsj6j" path="res://items/item_res.gd" id="1_d4vyw"]
+
+[resource]
+script = ExtResource("1_d4vyw")
+description = "These are a step above your stock arms. (+1 attack speed) (+1 damage)"
+price = 680
+agility = 0
+attack_speed = 1
+damage = 1
+metadata/_custom_type_script = "uid://biqson43hsj6j"
