@@ -4,6 +4,7 @@
 
 [resource]
 script = ExtResource("1_rlecf")
+title = "Carbon Fiber Frame"
 description = "lightens your frame making you quicker on your feet at the cost of reduced force behind attacks (+1 agility) (-1 damage) (+1 attack speed)"
 price = 480
 agility = 2

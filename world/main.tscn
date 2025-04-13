@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://lhtkxambi3yb"]
+[gd_scene load_steps=21 format=3 uid="uid://lhtkxambi3yb"]
 
 [ext_resource type="Texture2D" uid="uid://bhie37l8gvbus" path="res://world/try 2.png" id="1_lquwl"]
 [ext_resource type="Script" uid="uid://ccbjv32ai8cvc" path="res://world/interactable.gd" id="2_7mycd"]
@@ -12,6 +12,8 @@
 [ext_resource type="Resource" uid="uid://ckip8dh0581xc" path="res://items/carbonfiber frame.tres" id="10_8q2wj"]
 [ext_resource type="Resource" uid="uid://cix6fxgw0awht" path="res://items/muscle sensors.tres" id="11_60vd7"]
 [ext_resource type="Resource" uid="uid://bmqbqpgnchvbj" path="res://items/quality_arm_extender.tres" id="12_e63cu"]
+[ext_resource type="Resource" uid="uid://bxjanx85odpgk" path="res://items/Advanced Muscle Sensors.tres" id="13_8q2wj"]
+[ext_resource type="Resource" uid="uid://6yk53w723kcf" path="res://items/Advanced Arm Extenders.tres" id="14_60vd7"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_0e48y"]
 polygon = PackedVector2Array(-80, -10, -80, 42, -52, 42, -52, 20, -46, 20, -46, 27, -29, 27, -29, 24, -30, 24, -30, 20, -29, 20, -29, 14, -31, 14, -31, 15, -34, 15, -34, 16, -35, 16, -35, 15, -38, 15, -38, 16, -40, 16, -40, 14, -51, 14, -51, 4, -52, 4, -52, 0, -42, 0, -42, 3, -34, 3, -34, 6, -31, 6, -31, 7, -29, 7, -29, -2, -21, -2, -21, 27, -15, 27, -15, 17, -14, 17, -14, 15, -15, 15, -15, -2, 14, -2, 14, 9, -5, 9, -5, 15, -7, 15, -7, 17, -5, 17, -5, 27, 29, 27, 29, 32, -7, 32, -7, 34, -5, 34, -5, 41, -2, 41, -2, 42, -11, 42, -11, 46, -14, 46, -14, 34, -12, 34, -12, 32, -46, 32, -46, 48, -80, 48, -80, 60, 2, 60, 2, 53, 4, 53, 4, 51, 57, 51, 57, -10)
@@ -185,9 +187,30 @@ layout_mode = 2
 shortcut_context = NodePath(".")
 theme = ExtResource("5_kek77")
 shortcut = ExtResource("6_i1eo7")
-text = "Enhanced Arm Extender"
+text = "Quality Arm Extender"
 script = ExtResource("7_gu74f")
 item_res = ExtResource("12_e63cu")
+
+[node name="advanced muscle sensors2" type="Button" parent="CanvasLayer/shop/PanelContainer/VBoxContainer" node_paths=PackedStringArray("shortcut_context")]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+shortcut_context = NodePath(".")
+theme = ExtResource("5_kek77")
+shortcut = ExtResource("6_i1eo7")
+text = "Advanced Muscle Sensors"
+script = ExtResource("7_gu74f")
+item_res = ExtResource("13_8q2wj")
+
+[node name="advanced arm extender2" type="Button" parent="CanvasLayer/shop/PanelContainer/VBoxContainer" node_paths=PackedStringArray("shortcut_context")]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+focus_neighbor_bottom = NodePath("../weighted gloves")
+shortcut_context = NodePath(".")
+theme = ExtResource("5_kek77")
+shortcut = ExtResource("6_i1eo7")
+text = "Advanced Arm Extender"
+script = ExtResource("7_gu74f")
+item_res = ExtResource("14_60vd7")
 
 [node name="PanelContainer2" type="PanelContainer" parent="CanvasLayer/shop"]
 layout_mode = 1

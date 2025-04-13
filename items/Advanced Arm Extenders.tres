@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="item" load_steps=2 format=3 uid="uid://6yk53w723kcf"]
+
+[ext_resource type="Script" uid="uid://biqson43hsj6j" path="res://items/item_res.gd" id="1_uc32n"]
+
+[resource]
+script = ExtResource("1_uc32n")
+title = "Advanced Arm Extenders"
+description = ""
+price = 1200
+agility = 0
+attack_speed = 3
+damage = 2
+metadata/_custom_type_script = "uid://biqson43hsj6j"

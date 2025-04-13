@@ -4,6 +4,7 @@
 
 [resource]
 script = ExtResource("1_s2220")
+title = "Weighted Gloves"
 description = "These are gloves with metal inserts. Closest thing to brass knuckles that is allowed in the ring. (+2 damage)"
 price = 80
 agility = 0

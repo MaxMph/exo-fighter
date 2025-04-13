@@ -4,6 +4,7 @@
 
 [resource]
 script = ExtResource("1_d4vyw")
+title = "Quality Arm Extender"
 description = "These are a step above your stock arms. (+1 attack speed) (+1 damage)"
 price = 680
 agility = 0

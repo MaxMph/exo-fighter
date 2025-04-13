@@ -4,6 +4,7 @@
 
 [resource]
 script = ExtResource("1_04nl0")
+title = "Quality Muscle Sensors"
 description = "an imrovement over stock sensors, these allow a smoother and quicker connection to the fighter (+1 agility) (+1 attack speed)"
 price = 620
 agility = 1

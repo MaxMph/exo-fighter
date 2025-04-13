@@ -22,6 +22,7 @@ func open():
 	Global.in_menu = true
 	visible = true
 	is_open = true
+	Global.player.whoosh.play()
 	
 	$"PanelContainer/VBoxContainer/weighted gloves".grab_focus()
 
@@ -29,6 +30,7 @@ func close():
 	visible = false
 	Global.in_menu = false
 	is_open = false
+	Global.player.whoosh.play()
 
 
 func _input(event: InputEvent) -> void:

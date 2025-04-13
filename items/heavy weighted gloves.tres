@@ -4,6 +4,7 @@
 
 [resource]
 script = ExtResource("1_sn21u")
+title = "Heavy Weighted Gloves"
 description = ""
 price = 240
 agility = 0

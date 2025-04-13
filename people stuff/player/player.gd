@@ -5,6 +5,13 @@ const SPEED = 16.0
 
 var interaction
 
+#sounds
+@onready var buy = $sound/buy
+@onready var whoosh = $sound/whoosh
+
+func  _ready() -> void:
+	Global.player = self
+
 func _physics_process(delta: float) -> void:
 	
 	if Global.in_menu == false:
@@ -17,6 +24,7 @@ func _physics_process(delta: float) -> void:
 		$CanvasLayer/interaction_indicator.visible = true
 	else:
 		$CanvasLayer/interaction_indicator.visible = false
+	
 	move_and_slide()
 
 
