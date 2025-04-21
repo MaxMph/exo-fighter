@@ -1,16 +1,77 @@
-[gd_scene load_steps=7 format=3 uid="uid://b53dnic2tmc5g"]
+[gd_scene load_steps=29 format=3 uid="uid://b53dnic2tmc5g"]
 
-[ext_resource type="Texture2D" uid="uid://csymo2sskvk28" path="res://people stuff/player/player.png" id="1_4flbx"]
+[ext_resource type="Texture2D" uid="uid://csymo2sskvk28" path="res://people stuff/player/art/player.png" id="1_4flbx"]
 [ext_resource type="Script" uid="uid://q277uxkir8c5" path="res://people stuff/player/player.gd" id="1_onrkg"]
+[ext_resource type="Resource" uid="uid://cf2hu5dvsi08m" path="res://people stuff/player_statsheet.tres" id="2_ifx63"]
+[ext_resource type="Script" uid="uid://dvnublatgrdvm" path="res://people stuff/player/gun.gd" id="3_4bbev"]
+[ext_resource type="Texture2D" uid="uid://cg378jttsiebm" path="res://people stuff/player/art/red_dot_2.png" id="3_42f8n"]
 [ext_resource type="Script" uid="uid://gtxj2bywly4w" path="res://people stuff/player/canvas_layer.gd" id="3_s5v4m"]
 [ext_resource type="AudioStream" uid="uid://cr4k4vttn1my1" path="res://sound/try 2.mp3" id="4_fgpof"]
+[ext_resource type="Script" uid="uid://6l1jcf7y5jr3" path="res://people stuff/player/inventory.gd" id="5_8mstk"]
+[ext_resource type="Texture2D" uid="uid://cu6v4sy0yqthr" path="res://people stuff/player/art/croshair1.png" id="5_11b7t"]
 [ext_resource type="AudioStream" uid="uid://dtii2bisuibit" path="res://sound/whoosh.mp3" id="5_nvyyr"]
+[ext_resource type="Texture2D" uid="uid://clv8elksdfg7q" path="res://people stuff/player/art/inv/Group 1/inv.png" id="6_ehf1g"]
+[ext_resource type="Texture2D" uid="uid://bhoequ71scxky" path="res://people stuff/player/art/inv/Group 1/arms.png" id="7_a02tv"]
+[ext_resource type="BitMap" uid="uid://ccc41i2id585m" path="res://people stuff/player/art/inv/Group 1/bitmaps/arms.png" id="7_vwva4"]
+[ext_resource type="Texture2D" uid="uid://dtnhbne7sqcb" path="res://people stuff/player/art/inv/Group 1/head.png" id="8_3ixsn"]
+[ext_resource type="Texture2D" uid="uid://b0sxfdjljywob" path="res://people stuff/player/art/inv/Group 1/legs.png" id="8_uxuib"]
+[ext_resource type="BitMap" uid="uid://bv61aqshh6u5r" path="res://people stuff/player/art/inv/Group 1/bitmaps/legs.png" id="9_7cpaa"]
+[ext_resource type="Script" uid="uid://dufr0qiilkra7" path="res://people stuff/player/inv_button.gd" id="9_65q18"]
+[ext_resource type="BitMap" uid="uid://b1m7kn6be6a8q" path="res://people stuff/player/art/inv/Group 1/bitmaps/head.png" id="9_rhiiv"]
+[ext_resource type="Texture2D" uid="uid://c8upp3emfbu3q" path="res://people stuff/player/art/inv/Group 1/hands.png" id="10_8mstk"]
+[ext_resource type="BitMap" uid="uid://mgluu8i5faf4" path="res://people stuff/player/art/inv/Group 1/bitmaps/hands.png" id="11_65q18"]
+[ext_resource type="Theme" uid="uid://di7m1rhbplflk" path="res://people stuff/player/art/UI_theme.tres" id="16_65q18"]
+[ext_resource type="AudioStream" uid="uid://cs8fwx8phu015" path="res://sound/gunshot_3.wav" id="22_7rrur"]
+[ext_resource type="AudioStream" uid="uid://csmpbi40l18e" path="res://sound/click.wav" id="23_7rrur"]
+[ext_resource type="Script" uid="uid://ck12751eutmh8" path="res://people stuff/player/screenshake2.gd" id="24_d11ln"]
+[ext_resource type="AudioStream" uid="uid://coiop5u7qpxlw" path="res://sound/song1_explore.wav" id="24_y3i3t"]
+
+[sub_resource type="Gradient" id="Gradient_11b7t"]
+offsets = PackedFloat32Array(0, 0.74026)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_feysr"]
+gradient = SubResource("Gradient_11b7t")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0, 0)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i3pqv"]
 size = Vector2(2, 2)
 
 [node name="player" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_onrkg")
+stats = ExtResource("2_ifx63")
+
+[node name="gun" type="Node" parent="."]
+script = ExtResource("3_4bbev")
+
+[node name="gunpath" type="RayCast2D" parent="."]
+target_position = Vector2(80, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="gunpath"]
+z_index = 14
+position = Vector2(5, 0)
+scale = Vector2(0.04, 0.04)
+texture = ExtResource("3_42f8n")
+
+[node name="PointLight2D" type="PointLight2D" parent="gunpath/Sprite2D"]
+position = Vector2(1.52588e-05, 1.90735e-06)
+scale = Vector2(1.67188, 1.67188)
+color = Color(1, 0.282557, 0.102014, 1)
+energy = 0.4
+texture = SubResource("GradientTexture2D_feysr")
+
+[node name="Line2D" type="Line2D" parent="gunpath"]
+points = PackedVector2Array(0, 0, 5, 0)
+width = 0.2
+default_color = Color(0.627236, 0.109786, 3.27289e-06, 1)
+
+[node name="Sprite2D2" type="Sprite2D" parent="gunpath"]
+z_index = 6
+texture_filter = 1
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("5_11b7t")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_i3pqv")
@@ -63,6 +124,113 @@ offset_right = 78.0
 offset_bottom = 37.0
 text = "$money"
 
+[node name="inventory" type="Control" parent="CanvasLayer"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("5_8mstk")
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="CanvasLayer/inventory"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -512.0
+offset_top = -256.0
+offset_right = 512.0
+offset_bottom = 256.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/inventory/AspectRatioContainer"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("6_ehf1g")
+
+[node name="arms" type="TextureButton" parent="CanvasLayer/inventory/AspectRatioContainer/TextureRect"]
+texture_filter = 1
+layout_mode = 0
+offset_right = 1024.0
+offset_bottom = 512.0
+toggle_mode = true
+texture_pressed = ExtResource("7_a02tv")
+texture_hover = ExtResource("7_a02tv")
+texture_click_mask = ExtResource("7_vwva4")
+script = ExtResource("9_65q18")
+header = "Arms"
+
+[node name="legs" type="TextureButton" parent="CanvasLayer/inventory/AspectRatioContainer/TextureRect"]
+texture_filter = 1
+layout_mode = 0
+offset_right = 1024.0
+offset_bottom = 512.0
+toggle_mode = true
+texture_pressed = ExtResource("8_uxuib")
+texture_hover = ExtResource("8_uxuib")
+texture_click_mask = ExtResource("9_7cpaa")
+script = ExtResource("9_65q18")
+header = "Legs"
+
+[node name="hands" type="TextureButton" parent="CanvasLayer/inventory/AspectRatioContainer/TextureRect"]
+texture_filter = 1
+layout_mode = 0
+offset_right = 1024.0
+offset_bottom = 512.0
+toggle_mode = true
+texture_pressed = ExtResource("10_8mstk")
+texture_hover = ExtResource("10_8mstk")
+texture_click_mask = ExtResource("11_65q18")
+script = ExtResource("9_65q18")
+header = "Hands"
+
+[node name="head" type="TextureButton" parent="CanvasLayer/inventory/AspectRatioContainer/TextureRect"]
+texture_filter = 1
+layout_mode = 0
+offset_right = 1024.0
+offset_bottom = 512.0
+toggle_mode = true
+texture_pressed = ExtResource("8_3ixsn")
+texture_hover = ExtResource("8_3ixsn")
+texture_click_mask = ExtResource("9_rhiiv")
+script = ExtResource("9_65q18")
+header = "Neural"
+
+[node name="AspectRatioContainer2" type="VBoxContainer" parent="CanvasLayer/inventory"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -78.0
+offset_top = -232.0
+offset_right = 360.0
+offset_bottom = 232.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.08, 1)
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/inventory/AspectRatioContainer2"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme = ExtResource("16_65q18")
+
+[node name="header" type="Label" parent="CanvasLayer/inventory/AspectRatioContainer2/PanelContainer"]
+layout_mode = 2
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PanelContainer2" type="PanelContainer" parent="CanvasLayer/inventory/AspectRatioContainer2"]
+custom_minimum_size = Vector2(0, 420)
+layout_mode = 2
+theme = ExtResource("16_65q18")
+
 [node name="sound" type="Node" parent="."]
 
 [node name="buy" type="AudioStreamPlayer" parent="sound"]
@@ -71,7 +239,25 @@ volume_db = -8.432
 
 [node name="whoosh" type="AudioStreamPlayer" parent="sound"]
 stream = ExtResource("5_nvyyr")
-volume_db = -15.928
+volume_db = -8.0
+
+[node name="shoot" type="AudioStreamPlayer" parent="sound"]
+stream = ExtResource("22_7rrur")
+max_polyphony = 12
+
+[node name="gravel_step" type="AudioStreamPlayer" parent="sound"]
+stream = ExtResource("23_7rrur")
+volume_db = -6.0
+
+[node name="music" type="AudioStreamPlayer" parent="sound"]
+stream = ExtResource("24_y3i3t")
+autoplay = true
+
+[node name="one_sec" type="Timer" parent="."]
+
+[node name="screenshake" type="Node" parent="."]
+script = ExtResource("24_d11ln")
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
+[connection signal="timeout" from="one_sec" to="." method="_on_one_sec_timeout"]

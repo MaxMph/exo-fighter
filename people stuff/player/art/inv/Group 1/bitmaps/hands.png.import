@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://mgluu8i5faf4"
+path="res://.godot/imported/hands.png-8920312bc2e4fad4f552af3a017107d8.res"
+
+[deps]
+
+source_file="res://people stuff/player/art/inv/Group 1/bitmaps/hands.png"
+dest_files=["res://.godot/imported/hands.png-8920312bc2e4fad4f552af3a017107d8.res"]
+
+[params]
+
+create_from=1
+threshold=0.5

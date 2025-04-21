@@ -1,11 +1,9 @@
 extends Control
 
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func _on_timer_timeout() -> void:
+	if randi_range(0, 10) > 4:
+		$fighter.attack()
+	
+	if randi_range(0, 10) > 4:
+		$enemy.attack()

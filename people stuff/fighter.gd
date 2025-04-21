@@ -1,41 +1,39 @@
-extends ProgressBar
+extends Node
+class_name fighter
 
 @export var opponent: Node
 @export var healthbar: ProgressBar
 
-var health = 100
-var blockcheck = 40
+
 var agro_check = 10
 
+@export var stat_res: Resource
 
 func _ready() -> void:
-	pass # Replace with function body.
+	healthbar.value = stat_res.health
 
-
-
-func _process(delta: float) -> void:
-	pass
-
-
-func attacked(dmg):
-	
-	if randf_range(0,100) <= agro_check:
-		attempt_parry()
-	elif randf_range(0,100) <= blockcheck:
+func attacked(dmg, speed):
+	if (randf_range(0,100) + speed) <= stat_res.agility:
+		attempt_counter()
+	elif randf_range(0,100) <= stat_res.agility:
 		pass
 	else:
-		health -= dmg
-		if health <= 0:
+		
+		
+		
+		stat_res.health -= dmg
+		if stat_res.health <= 0:
 			die()
 		else:
-			healthbar.value = health
+			healthbar.value = stat_res.health
 
 func attack():
-	pass
+	opponent.attacked(stat_res.damage, stat_res.attack_speed)
+	#opponent.attacked(10, stat_res.attack_speed)
 	
 
-func attempt_parry():
-	pass
+func attempt_counter():
+	attack()
 
 func die():
-	pass
+	get_tree().change_scene_to_file("res://world/main.tscn")

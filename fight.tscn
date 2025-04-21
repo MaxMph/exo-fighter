@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://dafp6jxcrcn06"]
+[gd_scene load_steps=7 format=3 uid="uid://dafp6jxcrcn06"]
 
 [ext_resource type="Script" uid="uid://d274r6o5ci6iw" path="res://fight.gd" id="1_4jl1m"]
+[ext_resource type="Theme" uid="uid://cpp3b44wsdkb5" path="res://world/theme.tres" id="2_34m47"]
 [ext_resource type="Script" uid="uid://dokym70ss7t35" path="res://people stuff/fighter.gd" id="2_hchht"]
-[ext_resource type="Script" uid="uid://c7uc3wqyt01au" path="res://people stuff/enemy.gd" id="3_34m47"]
+[ext_resource type="Resource" uid="uid://cf2hu5dvsi08m" path="res://people stuff/player_statsheet.tres" id="3_4jl1m"]
+[ext_resource type="Script" uid="uid://dt7fapv0njm0p" path="res://enemy.gd" id="4_hchht"]
+[ext_resource type="Resource" uid="uid://ospvdjrtyafa" path="res://people stuff/enemy_statsheet.tres" id="6_562p4"]
 
 [node name="fight" type="Control"]
 layout_mode = 3
@@ -19,6 +22,7 @@ offset_left = 40.0
 offset_top = 20.0
 offset_right = 256.0
 offset_bottom = 47.0
+theme = ExtResource("2_34m47")
 show_percentage = false
 
 [node name="enemy health" type="ProgressBar" parent="."]
@@ -31,11 +35,22 @@ offset_top = 20.0
 offset_right = -40.0
 offset_bottom = 47.0
 grow_horizontal = 0
+theme = ExtResource("2_34m47")
+show_percentage = false
 
 [node name="fighter" type="Node" parent="." node_paths=PackedStringArray("opponent", "healthbar")]
 script = ExtResource("2_hchht")
 opponent = NodePath("../enemy")
 healthbar = NodePath("../fighter health")
+stat_res = ExtResource("3_4jl1m")
 
-[node name="enemy" type="Node" parent="."]
-script = ExtResource("3_34m47")
+[node name="enemy" type="Node" parent="." node_paths=PackedStringArray("opponent", "healthbar")]
+script = ExtResource("4_hchht")
+opponent = NodePath("../fighter")
+healthbar = NodePath("../enemy health")
+stat_res = ExtResource("6_562p4")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

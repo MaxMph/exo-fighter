@@ -1,0 +1,49 @@
+[gd_scene load_steps=7 format=3 uid="uid://cmwttg4kf7vth"]
+
+[ext_resource type="Texture2D" uid="uid://csymo2sskvk28" path="res://people stuff/player/art/player.png" id="1_jfq8d"]
+[ext_resource type="Script" uid="uid://pawhcd77jxlm" path="res://people stuff/enemy.gd" id="1_tsl65"]
+[ext_resource type="AudioStream" uid="uid://bwm4bfgsyohre" path="res://sound/086558_bullet-39737 (2).mp3" id="3_ahbro"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_jfq8d"]
+light_mode = 2
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tsl65"]
+size = Vector2(2, 2)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ahbro"]
+particle_flag_disable_z = true
+spread = 180.0
+initial_velocity_min = 4.0
+initial_velocity_max = 11.75
+gravity = Vector3(0, 0, 0)
+scale_min = 0.2
+scale_max = 0.3
+
+[node name="enemy" type="CharacterBody2D" groups=["hitable"]]
+light_mask = 2
+visibility_layer = 2
+material = SubResource("CanvasItemMaterial_jfq8d")
+script = ExtResource("1_tsl65")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_tsl65")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+light_mask = 2
+visibility_layer = 2
+texture_filter = 1
+use_parent_material = true
+texture = ExtResource("1_jfq8d")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_ahbro")
+pitch_scale = 1.19
+max_polyphony = 5
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+self_modulate = Color(1, 0, 0, 1)
+texture_filter = 1
+emitting = false
+lifetime = 0.2
+one_shot = true
+process_material = SubResource("ParticleProcessMaterial_ahbro")

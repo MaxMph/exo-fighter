@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://b1m7kn6be6a8q"
+path="res://.godot/imported/head.png-76756956c2b071b0033f73f0ca55d4c3.res"
+
+[deps]
+
+source_file="res://people stuff/player/art/inv/Group 1/bitmaps/head.png"
+dest_files=["res://.godot/imported/head.png-76756956c2b071b0033f73f0ca55d4c3.res"]
+
+[params]
+
+create_from=1
+threshold=0.5

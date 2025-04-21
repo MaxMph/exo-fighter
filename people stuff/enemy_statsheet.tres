@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="statsheet" load_steps=2 format=3 uid="uid://ospvdjrtyafa"]
+
+[ext_resource type="Script" uid="uid://cd0do7njtkycf" path="res://people stuff/stats.gd" id="1_luf5l"]
+
+[resource]
+script = ExtResource("1_luf5l")
+money = 0
+damage = 10
+attack_speed = 10
+agility = 10
+health = 100
+hunger = 100
+energy = 100
+metadata/_custom_type_script = "uid://cd0do7njtkycf"

@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://ccc41i2id585m"
+path="res://.godot/imported/arms.png-b997e34fbe1030af03b3d1ee22545ce4.res"
+
+[deps]
+
+source_file="res://people stuff/player/art/inv/Group 1/bitmaps/arms.png"
+dest_files=["res://.godot/imported/arms.png-b997e34fbe1030af03b3d1ee22545ce4.res"]
+
+[params]
+
+create_from=1
+threshold=0.5

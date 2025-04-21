@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c75dkut5cloef"]
+
+[ext_resource type="Script" uid="uid://cnq8tr5e0f276" path="res://bitmap_converter.gd" id="1_w44u1"]
+
+[node name="bitmap_converter" type="Node"]
+script = ExtResource("1_w44u1")

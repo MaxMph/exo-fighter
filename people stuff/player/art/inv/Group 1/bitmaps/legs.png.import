@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://bv61aqshh6u5r"
+path="res://.godot/imported/legs.png-c0dfae182e931d1ec1db4eba9cd4d1b5.res"
+
+[deps]
+
+source_file="res://people stuff/player/art/inv/Group 1/bitmaps/legs.png"
+dest_files=["res://.godot/imported/legs.png-c0dfae182e931d1ec1db4eba9cd4d1b5.res"]
+
+[params]
+
+create_from=1
+threshold=0.5

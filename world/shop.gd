@@ -1,7 +1,6 @@
 extends Control
 
 var is_open = false
-#var item_buttons: Array = []
 var cur_item
 
 var toberemoved
@@ -20,6 +19,7 @@ var toberemoved
 
 func open():
 	Global.in_menu = true
+	Global.can_walk = false
 	visible = true
 	is_open = true
 	Global.player.whoosh.play()
@@ -29,24 +29,12 @@ func open():
 func close():
 	visible = false
 	Global.in_menu = false
+	Global.can_walk = true
 	is_open = false
 	Global.player.whoosh.play()
 
 
 func _input(event: InputEvent) -> void:
 	if is_open:
-		#find_item()
 		if Input.is_action_just_pressed("exit"):
 			close()
-		#if Input.is_action_just_pressed("interact"):
-		#	if cur_item.price <= Global.money:
-		#		Global.money -= cur_item.price
-				#NodePath(get_viewport().egui_get_focus_owner())
-
-
-#func find_item():
-	#for i in item_buttons:
-		#if i == get_viewport().gui_get_focus_owner():
-			#cur_item = item_res[item_buttons.find(i)]
-			#item_text.text = cur_item.description
-			#price_text.text = "$" + str(cur_item.price)

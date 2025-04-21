@@ -1,11 +1,12 @@
-extends Node
+extends Resource
+class_name statsheet
 
+@export var money: int = 0
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+@export var damage: int = 10
+@export var attack_speed: int = 10
+@export var agility: int = 10
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+@export var health: int = 100
+@export var hunger: int = 100
+@export var energy: int = 100

@@ -1,9 +1,11 @@
-[gd_scene load_steps=21 format=3 uid="uid://lhtkxambi3yb"]
+[gd_scene load_steps=25 format=3 uid="uid://lhtkxambi3yb"]
 
-[ext_resource type="Texture2D" uid="uid://bhie37l8gvbus" path="res://world/try 2.png" id="1_lquwl"]
+[ext_resource type="Texture2D" uid="uid://cy3ucg4qjtssa" path="res://world/map/map_top.png" id="1_e63cu"]
 [ext_resource type="Script" uid="uid://ccbjv32ai8cvc" path="res://world/interactable.gd" id="2_7mycd"]
+[ext_resource type="Script" uid="uid://cxfn0ds3vjefp" path="res://world/arena_enter.gd" id="3_60vd7"]
 [ext_resource type="PackedScene" uid="uid://b53dnic2tmc5g" path="res://people stuff/player/player.tscn" id="3_272bh"]
 [ext_resource type="Script" uid="uid://daiec56jcful1" path="res://world/shop.gd" id="4_5vw27"]
+[ext_resource type="Texture2D" uid="uid://ngwnlhxkgphy" path="res://world/map/map_bottom.png" id="4_s8tpt"]
 [ext_resource type="Theme" uid="uid://cpp3b44wsdkb5" path="res://world/theme.tres" id="5_kek77"]
 [ext_resource type="Shortcut" uid="uid://chemkknwdpufs" path="res://world/shortcut.tres" id="6_i1eo7"]
 [ext_resource type="Script" uid="uid://nbaqlncerqwk" path="res://world/store_item.gd" id="7_gu74f"]
@@ -36,8 +38,12 @@ height = 16
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 
+[sub_resource type="Gradient" id="Gradient_s8tpt"]
+offsets = PackedFloat32Array(0, 0.733766)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_0hol4"]
-gradient = SubResource("Gradient_0e48y")
+gradient = SubResource("Gradient_s8tpt")
 width = 12
 height = 12
 fill = 1
@@ -46,22 +52,35 @@ fill_from = Vector2(0.5, 0.5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0hol4"]
 size = Vector2(5, 9)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e63cu"]
+
 [node name="main" type="Node"]
 
-[node name="Try2" type="Sprite2D" parent="."]
+[node name="backround" type="Sprite2D" parent="."]
+z_index = -4
 texture_filter = 1
 position = Vector2(10, -40)
-texture = ExtResource("1_lquwl")
+texture = ExtResource("4_s8tpt")
+
+[node name="Try2" type="Sprite2D" parent="."]
+self_modulate = Color(0.817521, 0.817521, 0.817521, 1)
+z_index = 4
+texture_filter = 1
+position = Vector2(10, -40)
+texture = ExtResource("1_e63cu")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Try2"]
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Try2/StaticBody2D"]
 visible = false
-polygon = PackedVector2Array(-80, -10, -80, 42, -52, 42, -52, 20, -46, 20, -46, 27, -29, 27, -29, 24, -30, 24, -30, 20, -29, 20, -29, 14, -31, 14, -31, 15, -34, 15, -34, 16, -35, 16, -35, 15, -38, 15, -38, 16, -40, 16, -40, 14, -51, 14, -51, 4, -52, 4, -52, 0, -42, 0, -42, 3, -34, 3, -34, 6, -31, 6, -31, 7, -29, 7, -29, -2, -21, -2, -21, 27, -15, 27, -15, 17, -14, 17, -14, 15, -15, 15, -15, -2, 14, -2, 14, 9, -5, 9, -5, 15, -7, 15, -7, 17, -5, 17, -5, 27, 29, 27, 29, 32, -7, 32, -7, 34, -5, 34, -5, 41, -2, 41, -2, 42, -11, 42, -11, 46, -14, 46, -14, 34, -12, 34, -12, 32, -46, 32, -46, 48, -80, 48, -80, 60, 2, 60, 2, 53, 4, 53, 4, 51, 57, 51, 57, -10)
+light_mask = 2
+visibility_layer = 2
+polygon = PackedVector2Array(-80, -10, -80, 42, -52, 42, -52, 20, -46, 20, -46, 27, -29, 27, -29, 24, -30, 24, -30, 20, -29, 20, -29, 14, -31, 14, -31, 15, -34, 15, -34, 16, -35, 16, -35, 15, -38, 15, -38, 16, -40, 16, -40, 14, -51, 14, -51, 4, -52, 4, -52, 0, -42, 0, -42, 3, -34, 3, -34, 6, -31, 6, -31, 7, -29, 7, -29, -2, -21, -2, -21, 27, -15, 27, -15, 17, -14, 17, -14, 15, -15, 15, -15, 0, 14, 0, 14, 9, -5, 9, -5, 15, -7, 15, -7, 17, -5, 17, -5, 27, 29, 27, 29, 32, -7, 32, -7, 34, -5, 34, -5, 41, -2, 41, -2, 42, -11, 42, -11, 46, -14, 46, -14, 34, -12, 34, -12, 32, -46, 32, -46, 48, -80, 48, -80, 60, 2, 60, 2, 53, 4, 53, 4, 51, 57, 51, 57, -10)
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Try2"]
-visible = false
+self_modulate = Color(1, 1, 1, 0)
 occluder = SubResource("OccluderPolygon2D_0e48y")
+occluder_light_mask = 2
 
 [node name="PointLight2D" type="PointLight2D" parent="Try2/LightOccluder2D"]
 visible = false
@@ -89,7 +108,7 @@ texture = SubResource("GradientTexture2D_0hol4")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="Try2"]
 position = Vector2(-10, 40)
-color = Color(0.552956, 0.552956, 0.552956, 1)
+color = Color(0.374139, 0.374139, 0.374139, 1)
 
 [node name="shop" type="Area2D" parent="Try2"]
 position = Vector2(-10, 40)
@@ -100,6 +119,15 @@ script = ExtResource("2_7mycd")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Try2/shop"]
 position = Vector2(-40.5, -30.5)
 shape = SubResource("RectangleShape2D_0hol4")
+
+[node name="Area2D" type="Area2D" parent="Try2"]
+position = Vector2(-76, 45)
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("3_60vd7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Try2/Area2D"]
+shape = SubResource("RectangleShape2D_e63cu")
 
 [node name="player" parent="." instance=ExtResource("3_272bh")]
 
@@ -259,3 +287,9 @@ layout_mode = 2
 theme = ExtResource("5_kek77")
 text = "asdfgrtdhsdtgstssdgs dg sdfgsr sdgsrdg sdgsregsrg sdrg sdrgs sdfgseg sdfg sdfgs"
 vertical_alignment = 1
+
+[node name="fight_select" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
