@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://b53dnic2tmc5g"]
+[gd_scene load_steps=31 format=3 uid="uid://b53dnic2tmc5g"]
 
 [ext_resource type="Texture2D" uid="uid://csymo2sskvk28" path="res://people stuff/player/art/player.png" id="1_4flbx"]
 [ext_resource type="Script" uid="uid://q277uxkir8c5" path="res://people stuff/player/player.gd" id="1_onrkg"]
@@ -39,7 +39,14 @@ fill_to = Vector2(0, 0)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i3pqv"]
 size = Vector2(2, 2)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y3i3t"]
+bg_color = Color(0.277528, 0.277528, 0.277528, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_454da"]
+bg_color = Color(0.653684, 0.133749, 0.160501, 1)
+
 [node name="player" type="CharacterBody2D" groups=["player"]]
+collision_layer = 13
 script = ExtResource("1_onrkg")
 stats = ExtResource("2_ifx63")
 
@@ -123,6 +130,17 @@ offset_top = 14.0
 offset_right = 78.0
 offset_bottom = 37.0
 text = "$money"
+
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 45.0
+offset_right = 193.0
+offset_bottom = 72.0
+theme_override_styles/background = SubResource("StyleBoxFlat_y3i3t")
+theme_override_styles/fill = SubResource("StyleBoxFlat_454da")
+value = 100.0
+show_percentage = false
 
 [node name="inventory" type="Control" parent="CanvasLayer"]
 visible = false
@@ -239,7 +257,6 @@ volume_db = -8.432
 
 [node name="whoosh" type="AudioStreamPlayer" parent="sound"]
 stream = ExtResource("5_nvyyr")
-volume_db = -8.0
 
 [node name="shoot" type="AudioStreamPlayer" parent="sound"]
 stream = ExtResource("22_7rrur")
@@ -257,6 +274,10 @@ autoplay = true
 
 [node name="screenshake" type="Node" parent="."]
 script = ExtResource("24_d11ln")
+
+[node name="firerate" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]

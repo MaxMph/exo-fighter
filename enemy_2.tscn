@@ -1,0 +1,78 @@
+[gd_scene load_steps=8 format=3 uid="uid://bfydgqdm1mjae"]
+
+[ext_resource type="Script" uid="uid://cr68ivrp82a0i" path="res://enemy_2.gd" id="1_mvvu1"]
+[ext_resource type="Texture2D" uid="uid://csymo2sskvk28" path="res://people stuff/player/art/player.png" id="2_hv4bk"]
+[ext_resource type="AudioStream" uid="uid://bwm4bfgsyohre" path="res://sound/086558_bullet-39737 (2).mp3" id="3_qr8xe"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_05s6o"]
+size = Vector2(2, 2)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_mvvu1"]
+light_mode = 2
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_anlw3"]
+particle_flag_disable_z = true
+spread = 180.0
+initial_velocity_min = 4.0
+initial_velocity_max = 11.75
+gravity = Vector3(0, 0, 0)
+scale_min = 0.2
+scale_max = 0.3
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mvvu1"]
+radius = 3.0
+
+[node name="enemy 2" type="CharacterBody2D" groups=["enemies", "hitable"]]
+script = ExtResource("1_mvvu1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_05s6o")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+light_mask = 2
+visibility_layer = 2
+texture_filter = 1
+material = SubResource("CanvasItemMaterial_mvvu1")
+texture = ExtResource("2_hv4bk")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_qr8xe")
+pitch_scale = 1.19
+max_polyphony = 5
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+self_modulate = Color(1, 0, 0, 1)
+texture_filter = 1
+emitting = false
+lifetime = 0.2
+one_shot = true
+visibility_rect = Rect2(-30, -30, 60, 60)
+process_material = SubResource("ParticleProcessMaterial_anlw3")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(26, 0)
+
+[node name="RayCast2D2" type="RayCast2D" parent="."]
+target_position = Vector2(26, 0)
+
+[node name="tic" type="Timer" parent="."]
+wait_time = 0.1
+autostart = true
+
+[node name="attack_area" type="Area2D" parent="."]
+collision_mask = 4
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="attack_area"]
+shape = SubResource("CircleShape2D_mvvu1")
+
+[node name="attack_timer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[connection signal="timeout" from="tic" to="." method="on_tic"]
+[connection signal="body_entered" from="attack_area" to="." method="_on_attack_area_body_entered"]
+[connection signal="body_exited" from="attack_area" to="." method="_on_attack_area_body_exited"]
+[connection signal="timeout" from="attack_timer" to="." method="_on_attack"]

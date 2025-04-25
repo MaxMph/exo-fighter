@@ -1,10 +1,11 @@
-[gd_scene load_steps=25 format=3 uid="uid://gsd0oa0fl2kh"]
+[gd_scene load_steps=26 format=3 uid="uid://gsd0oa0fl2kh"]
 
 [ext_resource type="Texture2D" uid="uid://dyc5jf0rexgkg" path="res://world/map/outer_map_experiment_floor.png" id="1_1fsyp"]
 [ext_resource type="Texture2D" uid="uid://bdaxrtlbt38rl" path="res://world/map/outer_map_experiment.png" id="2_76p6c"]
 [ext_resource type="PackedScene" uid="uid://b53dnic2tmc5g" path="res://people stuff/player/player.tscn" id="3_h3vl7"]
 [ext_resource type="PackedScene" uid="uid://cmwttg4kf7vth" path="res://people stuff/enemy.tscn" id="4_h3vl7"]
 [ext_resource type="Resource" uid="uid://jdku7nplmx2e" path="res://people stuff/enemy/enemy_stats/enemy1.tres" id="5_h3vl7"]
+[ext_resource type="PackedScene" uid="uid://bfydgqdm1mjae" path="res://enemy_2.tscn" id="6_7wkia"]
 
 [sub_resource type="Gradient" id="Gradient_h3vl7"]
 
@@ -78,7 +79,7 @@ texture_filter = 1
 texture = ExtResource("2_76p6c")
 
 [node name="player" parent="." instance=ExtResource("3_h3vl7")]
-position = Vector2(-148, -76)
+position = Vector2(15, -111)
 
 [node name="PointLight2D6" type="PointLight2D" parent="player"]
 light_mask = 3
@@ -215,22 +216,76 @@ texture = SubResource("GradientTexture2D_h3vl7")
 position = Vector2(-141, -83)
 stats = ExtResource("5_h3vl7")
 
-[node name="enemy2" parent="enemies" instance=ExtResource("4_h3vl7")]
-position = Vector2(-49, -159)
-stats = ExtResource("5_h3vl7")
+[node name="zombies" type="Node" parent="."]
 
-[node name="enemy3" parent="enemies" instance=ExtResource("4_h3vl7")]
-position = Vector2(-116, -140)
-stats = ExtResource("5_h3vl7")
+[node name="enemy 2" parent="zombies" instance=ExtResource("6_7wkia")]
+position = Vector2(47, -113)
 
-[node name="enemy4" parent="enemies" instance=ExtResource("4_h3vl7")]
-position = Vector2(-92, -139)
-stats = ExtResource("5_h3vl7")
+[node name="enemy 3" parent="zombies" instance=ExtResource("6_7wkia")]
+position = Vector2(28, -127)
 
-[node name="enemy5" parent="enemies" instance=ExtResource("4_h3vl7")]
-position = Vector2(-86, -143)
-stats = ExtResource("5_h3vl7")
+[node name="enemy 5" parent="zombies" instance=ExtResource("6_7wkia")]
+position = Vector2(8, -134)
 
-[node name="enemy6" parent="enemies" instance=ExtResource("4_h3vl7")]
-position = Vector2(-80, -133)
-stats = ExtResource("5_h3vl7")
+[node name="enemy 4" parent="zombies" instance=ExtResource("6_7wkia")]
+position = Vector2(38, -102)
+
+[node name="enemy 6" parent="zombies" instance=ExtResource("6_7wkia")]
+position = Vector2(98, -96)
+
+[node name="enemy 7" parent="zombies" instance=ExtResource("6_7wkia")]
+position = Vector2(89, -85)
+
+[node name="enemy 8" parent="zombies" instance=ExtResource("6_7wkia")]
+position = Vector2(99, -92)
+
+[node name="enemy 9" parent="zombies" instance=ExtResource("6_7wkia")]
+position = Vector2(100, -88)
+
+[node name="enemy 10" parent="zombies" instance=ExtResource("6_7wkia")]
+position = Vector2(-14, -94)
+
+[node name="enemy 11" parent="zombies" instance=ExtResource("6_7wkia")]
+position = Vector2(-26, -93)
+
+[node name="enemy 12" parent="zombies" instance=ExtResource("6_7wkia")]
+position = Vector2(-16, -100)
+
+[node name="enemy 13" parent="zombies" instance=ExtResource("6_7wkia")]
+position = Vector2(-19, -90)
+
+[node name="enemy 20" parent="zombies" instance=ExtResource("6_7wkia")]
+position = Vector2(-51, -153)
+
+[node name="enemy 21" parent="zombies" instance=ExtResource("6_7wkia")]
+position = Vector2(-75, -179)
+
+[node name="enemy 24" parent="zombies" instance=ExtResource("6_7wkia")]
+position = Vector2(-67, -176)
+
+[node name="enemy 25" parent="zombies" instance=ExtResource("6_7wkia")]
+position = Vector2(-59, -172)
+
+[node name="enemy 22" parent="zombies" instance=ExtResource("6_7wkia")]
+position = Vector2(-61, -156)
+
+[node name="enemy 23" parent="zombies" instance=ExtResource("6_7wkia")]
+position = Vector2(-68, -171)
+
+[node name="enemy 14" parent="zombies" instance=ExtResource("6_7wkia")]
+position = Vector2(-57, -60)
+
+[node name="enemy 15" parent="zombies" instance=ExtResource("6_7wkia")]
+position = Vector2(-69, -59)
+
+[node name="enemy 16" parent="zombies" instance=ExtResource("6_7wkia")]
+position = Vector2(-59, -66)
+
+[node name="enemy 18" parent="zombies" instance=ExtResource("6_7wkia")]
+position = Vector2(-24, -35)
+
+[node name="enemy 19" parent="zombies" instance=ExtResource("6_7wkia")]
+position = Vector2(-30, -37)
+
+[node name="enemy 17" parent="zombies" instance=ExtResource("6_7wkia")]
+position = Vector2(-62, -56)

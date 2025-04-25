@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cmwttg4kf7vth"]
+[gd_scene load_steps=8 format=3 uid="uid://cmwttg4kf7vth"]
 
 [ext_resource type="Texture2D" uid="uid://csymo2sskvk28" path="res://people stuff/player/art/player.png" id="1_jfq8d"]
 [ext_resource type="Script" uid="uid://pawhcd77jxlm" path="res://people stuff/enemy.gd" id="1_tsl65"]
@@ -18,6 +18,9 @@ initial_velocity_max = 11.75
 gravity = Vector3(0, 0, 0)
 scale_min = 0.2
 scale_max = 0.3
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ahbro"]
+radius = 21.0238
 
 [node name="enemy" type="CharacterBody2D" groups=["hitable"]]
 light_mask = 2
@@ -47,3 +50,22 @@ emitting = false
 lifetime = 0.2
 one_shot = true
 process_material = SubResource("ParticleProcessMaterial_ahbro")
+
+[node name="head" type="Node2D" parent="."]
+
+[node name="gun_ray" type="RayCast2D" parent="head"]
+target_position = Vector2(57, 0)
+
+[node name="probe" type="RayCast2D" parent="head"]
+target_position = Vector2(48, 0)
+
+[node name="sense_range" type="Area2D" parent="head"]
+collision_layer = 0
+collision_mask = 8
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="head/sense_range"]
+shape = SubResource("CircleShape2D_ahbro")
+
+[connection signal="body_entered" from="head/sense_range" to="." method="_on_sense_range_body_entered"]
+[connection signal="body_exited" from="head/sense_range" to="." method="_on_sense_range_body_exited"]
