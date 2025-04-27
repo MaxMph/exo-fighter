@@ -1,0 +1,87 @@
+[gd_scene load_steps=5 format=3 uid="uid://bikhgqhs7obdr"]
+
+[ext_resource type="Script" uid="uid://b15xbjaby7d6g" path="res://ui and menus/main_menu.gd" id="1_d263k"]
+[ext_resource type="Texture2D" uid="uid://dyc5jf0rexgkg" path="res://world/map/outer_map_experiment_floor.png" id="1_m010f"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_4torm"]
+font_size = 26
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4torm"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_d263k")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Exo-fighter"
+label_settings = SubResource("LabelSettings_4torm")
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_4torm")
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "start
+"
+
+[node name="Button2" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Exit
+"
+
+[node name="Panel" type="Panel" parent="."]
+z_index = -1
+custom_minimum_size = Vector2(20000, 200)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+z_index = -2
+texture_filter = 1
+layout_mode = 1
+offset_left = -1402.0
+offset_top = -1665.0
+offset_right = -890.0
+offset_bottom = -1153.0
+scale = Vector2(8, 8)
+mouse_filter = 2
+texture = ExtResource("1_m010f")
+stretch_mode = 1
+
+[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button2" to="." method="_on_button_2_pressed"]

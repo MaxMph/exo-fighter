@@ -7,4 +7,4 @@ var in_menu = false
 var can_interact = false
 var can_walk = true
 
-var money = 1000
+var money = 0

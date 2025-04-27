@@ -61,6 +61,8 @@ func hit(dmg, knock):
 		$Sprite2D.self_modulate = Color.WHITE
 
 func die():
+	Global.money += randi_range(40, 80)
+	Global.player.buy.play()
 	queue_free()
 
 func friendhit(pos):

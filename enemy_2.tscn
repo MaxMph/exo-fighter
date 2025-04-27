@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://bfydgqdm1mjae"]
+[gd_scene load_steps=9 format=3 uid="uid://bfydgqdm1mjae"]
 
 [ext_resource type="Script" uid="uid://cr68ivrp82a0i" path="res://enemy_2.gd" id="1_mvvu1"]
 [ext_resource type="Texture2D" uid="uid://csymo2sskvk28" path="res://people stuff/player/art/player.png" id="2_hv4bk"]
 [ext_resource type="AudioStream" uid="uid://bwm4bfgsyohre" path="res://sound/086558_bullet-39737 (2).mp3" id="3_qr8xe"]
+[ext_resource type="AudioStream" uid="uid://cr4k4vttn1my1" path="res://sound/try 2.mp3" id="4_hv4bk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_05s6o"]
 size = Vector2(2, 2)
@@ -71,6 +72,9 @@ shape = SubResource("CircleShape2D_mvvu1")
 [node name="attack_timer" type="Timer" parent="."]
 wait_time = 0.5
 one_shot = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_hv4bk")
 
 [connection signal="timeout" from="tic" to="." method="on_tic"]
 [connection signal="body_entered" from="attack_area" to="." method="_on_attack_area_body_entered"]

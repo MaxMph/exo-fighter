@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="exo-fighter"
-run/main_scene="uid://lhtkxambi3yb"
+run/main_scene="uid://bikhgqhs7obdr"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://world/icon.svg"
 
@@ -115,3 +115,7 @@ sprint={
 
 2d_physics/layer_3="player"
 2d_physics/layer_4="creatures"
+
+[rendering]
+
+textures/vram_compression/import_etc2_astc=true

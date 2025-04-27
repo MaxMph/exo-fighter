@@ -253,7 +253,6 @@ theme = ExtResource("16_65q18")
 
 [node name="buy" type="AudioStreamPlayer" parent="sound"]
 stream = ExtResource("4_fgpof")
-volume_db = -8.432
 
 [node name="whoosh" type="AudioStreamPlayer" parent="sound"]
 stream = ExtResource("5_nvyyr")
@@ -268,6 +267,7 @@ volume_db = -6.0
 
 [node name="music" type="AudioStreamPlayer" parent="sound"]
 stream = ExtResource("24_y3i3t")
+volume_db = 10.0
 autoplay = true
 
 [node name="one_sec" type="Timer" parent="."]
