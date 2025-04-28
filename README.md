@@ -11,10 +11,15 @@ controls:
 
 I couldnt get this to a super playable state in time.
 whats missing:
-  I wasnt able to set up an inventory system.
+  I wasnt able to finish the inventory system.
   no save system.
   music doesnt stay continus when changeing scenes.
   only one enemy variation, no random spawning or patrolling. (I did actualy make two enemies, but i couldnt get the more complex one working)
   there is no way to extract from the abandoned layer other than dying... not ideal.
-  buying upgrades doesnt do anything (since there isnt any inventory).
+  buying upgrades doesnt do anything (since the inventory doesnt work).
+  cant swap guns
 
+I set up this project so that many of the things I want to add will be easier, so thats good. overall I am proud of what I got done, and I think given a little more time I would have a pretty cool game :)
+
+itch link:
+https://maxwell-mph.itch.io/exo-fight
