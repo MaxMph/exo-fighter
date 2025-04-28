@@ -13,7 +13,7 @@ I couldnt get this to a super playable state in time.
 whats missing:
   I wasnt able to set up an inventory system.
   no save system.
-  music doesnt stay continus when change=ing scenes.
+  music doesnt stay continus when changeing scenes.
   only one enemy variation, no random spawning or patrolling. (I did actualy make two enemies, but i couldnt get the more complex one working)
   there is no way to extract from the abandoned layer other than dying... not ideal.
   buying upgrades doesnt do anything (since there isnt any inventory).
